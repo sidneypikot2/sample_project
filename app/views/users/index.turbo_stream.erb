@@ -1,0 +1,7 @@
+<turbo-stream action="replace" target="user_list">
+  <template>
+    <tbody id="user_list">
+      <%= render partial: '/users/user', collection: @users, as: :user, formats: [:html] %>
+    </tbody>
+  </template>
+</turbo-stream>

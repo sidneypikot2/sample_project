@@ -1,0 +1,34 @@
+# json.id     DateTime.parse(@observation_date).strftime('%Y-%m-%d')
+# json.firstName     DateTime.parse(@observation_date).strftime('%Y-%m-%d')
+# json.observation_date     DateTime.parse(@observation_date).strftime('%Y-%m-%d')
+# json.observation_date     DateTime.parse(@observation_date).strftime('%Y-%m-%d')
+# json.observation_date     DateTime.parse(@observation_date).strftime('%Y-%m-%d')
+
+json.users @users['users'] do |user|
+  json.id                 user["id"]
+  json.firstName          user['firstName']
+  json.lastName           user['lastName']
+  json.age                user['age']
+  json.gender             user['gender']
+  json.email              user['email']
+  json.phone              user['phone']
+  json.username           user['username']
+  json.password           user['password']
+  json.birthDate          user['birthDate']
+  json.image              user['image']
+  json.height             user['height']
+  json.weight             user['weight']
+  json.hair {
+    json.color            user['hair']['color']
+    json.type             user['hair']['type']
+  }
+  json.domain             user['domain']
+  json.ip                 user['ip']
+
+  json.macAddress         user['macAddress']
+  json.university         user['university']
+
+  json.ein                user['ein']
+  json.ssn                user['ssn']
+  json.userAgent          user['userAgent']
+end

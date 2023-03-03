@@ -1,0 +1,10 @@
+<%- @ids.each do |id|%>
+<turbo-stream action="remove" target="user_<%= id %>">
+</turbo-stream>
+<%- end %>
+
+<turbo-stream action="replace" target="delete_user">
+  <template>
+    <%= render partial: 'components/delete_button', formats: [:html] %>
+  </template>
+</turbo-stream>
