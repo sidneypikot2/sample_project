@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.json { render json: UserSerializer.new(@users).serializable_hash }
       format.html
+      format.turbo_stream
     end
   end
 

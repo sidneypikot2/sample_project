@@ -5,3 +5,17 @@
     </tbody>
   </template>
 </turbo-stream>
+<turbo-stream action="replace" target="pagination_container">
+  <template>
+    <div id="pagination_container">
+      <%= paginate @users %>
+    </div>
+  </template>
+</turbo-stream>
+<turbo-stream action="replace" target="search_button_container">
+  <template>
+    <div id="search_button_container">
+      <%= button_to "Search", users_path(per_page: params[:per_page], keyword: params[:keyword]), { form_class: "hidden"} %>
+    </div>
+  </template>
+</turbo-stream>

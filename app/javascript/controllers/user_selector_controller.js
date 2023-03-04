@@ -32,4 +32,27 @@ export default class extends Controller {
       button_element.classList.add("cursor-not-allowed");
     }
   }
+
+  triggerTurboPaginate() {
+    const url = new URL(window.location);
+    url.searchParams.set("page", this.element.textContent);
+    if(url.searchParams.has('keyword')) {
+      url.searchParams.set("keyword", url.searchParams.get('keyword'));
+    }
+    window.history.pushState({}, "", url)
+    this.element.previousElementSibling.getElementsByTagName('button')[0].click()
+  }
+
+  triggerTurboSearch() {
+    const url = new URL(window.location);
+    var keyword = document.getElementById('search').value;
+    var search_form = document.getElementById('search_button_container').parentElement.getElementsByTagName('form')[0];
+    url.searchParams.delete("page");
+    if(url.searchParams.has('keyword')) {
+      url.searchParams.set("keyword", keyword);
+    }
+    window.history.pushState({}, "", url)
+    search_form.action = url
+    this.element.parentElement.nextElementSibling.getElementsByTagName('button')[0].click()
+  }
 }
