@@ -52,7 +52,7 @@ export default class extends Controller {
       url.searchParams.set("keyword", keyword);
     }
     window.history.pushState({}, "", url)
-    search_form.action = url
+    search_form.action = "users/post-index?" + url.searchParams.toString()
     this.element.parentElement.nextElementSibling.getElementsByTagName('button')[0].click()
   }
 }

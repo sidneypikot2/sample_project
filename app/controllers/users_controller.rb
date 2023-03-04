@@ -11,9 +11,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def search
-    render :action => :index
-  end
   def new
     @user = User.new
     @user.build_address
@@ -23,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    result = Users::GetUsers.call(id: params[:id])
+    @user = result.user
   end
 
   def show
@@ -88,19 +86,19 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(
-      :first_name, :last_name, :maiden_name, :age, :gender, :email,
+      :id, :first_name, :last_name, :maiden_name, :age, :gender, :email,
       :phone, :username, :password, :birth_date, :image, :height,:hair_type,
       :hair_color, :weight, :eye_color, :mac_address, :university, :ein, :ssn, :user_agent,
       address_attributes: [
-        :address, :city, :lat, :lng, :postal_code, :state
+        :id, :address, :city, :lat, :lng, :postal_code, :state
       ],
       bank_attributes: [
-        :card_expire, :card_number, :card_type, :currency, :iban
+        :id, :card_expire, :card_number, :card_type, :currency, :iban
       ],
       company_attributes: [
-        :department, :name, :title,
+        :id, :department, :name, :title,
         address_attributes: [
-          :address, :city, :lat, :lng, :postal_code, :state
+          :id, :address, :city, :lat, :lng, :postal_code, :state
         ]
       ]
     )

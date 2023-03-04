@@ -1,0 +1,201 @@
+<%# TODO - for dynamic form %>
+<ul>
+  <% model.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+  <% end %>
+</ul>
+<div class="grid gap-6 mb-6 md:grid-cols-3">
+  <div>
+    <%= form.label :first_name, "First name", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.text_field :first_name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <%= form.label :maiden_name, "Maiden name", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.text_field :maiden_name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <%= form.label :last_name, "Last name", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.text_field :last_name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+</div>
+<div class="grid gap-6 mb-6 md:grid-cols-2">
+  <div>
+    <%= form.label :birth_date, "Birthday", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.date_field :birth_date, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 light:text-white">Gender</label>
+    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex light:bg-gray-700 light:border-gray-600 light:text-white">
+      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r light:border-gray-600">
+        <div class="flex items-center pl-3">
+          <%= form.radio_button :gender, "male", class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-700 light:focus:ring-offset-gray-700 focus:ring-2 light:bg-gray-600 light:border-gray-500" %>
+          <%= form.label :gender, "male", class:"w-full py-3 ml-2 text-sm font-medium text-gray-900 light:text-gray-300" %>
+        </div>
+      </li>
+      <li class="w-full light:border-gray-600">
+        <div class="flex items-center pl-3">
+          <%= form.radio_button :gender, "female", class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-700 light:focus:ring-offset-gray-700 focus:ring-2 light:bg-gray-600 light:border-gray-500" %>
+          <%= form.label :gender, "female", class:"w-full py-3 ml-2 text-sm font-medium text-gray-900 light:text-gray-300" %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="grid mb-6 md:grid-cols-1">
+  <%= form.label :university, "University", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+  <%= form.text_field :university, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+</div>
+<div class="grid gap-6 mb-6 md:grid-cols-2">
+  <div>
+    <%= form.label :email, "Email address", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.email_field :email, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <%= form.label :phone, "Phone number", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.telephone_field :phone, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500", placeholder:"123-45-678" %>
+  </div>
+</div>
+<div class="grid gap-6 mb-6 md:grid-cols-2">
+  <div>
+    <%= form.label :username, "Username", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.text_field :username, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <%= form.label :password, "Password", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.password_field :password, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+</div>
+<div class="grid gap-6 mb-6 md:grid-cols-5">
+  <div>
+    <%= form.label :height, "Height", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.number_field :height, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <%= form.label :weight, "Weight", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.number_field :weight, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <%= form.label :eye_color, "Eye color", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.text_field :eye_color, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <%= form.label :hair_type, "Hair type", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.text_field :hair_type, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+  <div>
+    <%= form.label :hair_color, "Hair color", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+    <%= form.text_field :hair_color, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+  </div>
+</div>
+<h5>Address Details</h5>
+<%= form.fields_for :address do |address_form| %>
+  <div class="grid gap-6 mb-6 md:grid-cols-1">
+    <div>
+      <%= address_form.label :address, "Address", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= address_form.text_field :address, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+  </div>
+  <div class="grid gap-6 mb-6 md:grid-cols-2">
+    <div>
+      <%= address_form.label :state, "State", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= address_form.text_field :state, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+    <div>
+      <%= address_form.label :city, "City", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= address_form.text_field :city, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+  </div>
+  <div class="grid gap-6 mb-6 md:grid-cols-3">
+    <div>
+      <%= address_form.label :lat, "Lat", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= address_form.number_field :lat, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+    <div>
+      <%= address_form.label :lng, "Long", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= address_form.number_field :lng, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+    <div>
+      <%= address_form.label :postal_code, "Postal code", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= address_form.number_field :postal_code, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+  </div>
+<%- end %>
+<h5>Bank Details</h5>
+<%= form.fields_for :bank do |bank_form| %>
+  <div class="grid gap-6 mb-6 md:grid-cols-2">
+    <div>
+      <%= bank_form.label :card_number, "Card number", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= bank_form.number_field :card_number, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+    <div>
+      <%= bank_form.label :iban, "Iban", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= bank_form.text_field :iban, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+  </div>
+  <div class="grid gap-6 mb-6 md:grid-cols-5">
+    <div class="md:col-span-1">
+      <%= bank_form.label :card_expire, "Card Expire", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= bank_form.text_field :card_expire, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+    <div class="md:col-span-2">
+      <%= bank_form.label :card_type, "Card type", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= bank_form.text_field :card_type, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+    <div class="md:col-span-2">
+      <%= bank_form.label :currency, "Currency", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= bank_form.text_field :currency, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+  </div>
+<%- end %>
+<h5>Company Details</h5>
+<%= form.fields_for :company do |company_form| %>
+  <div class="grid gap-6 mb-6 md:grid-cols-2">
+    <div>
+      <%= company_form.label :title, "Title", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= company_form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+    <div>
+      <%= company_form.label :department, "Department", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= company_form.text_field :department, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+  </div>
+  <div class="grid gap-6 mb-6 md:grid-cols-1">
+    <div>
+      <%= company_form.label :name, "Name", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+      <%= company_form.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+    </div>
+  </div>
+<h5>Company Address Details</h5>
+  <%= company_form.fields_for :address do |company_address_form| %>
+    <div class="grid gap-6 mb-6 md:grid-cols-1">
+      <div>
+        <%= company_address_form.label :address, "Address", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+        <%= company_address_form.text_field :address, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+      </div>
+    </div>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+      <div>
+        <%= company_address_form.label :state, "State", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+        <%= company_address_form.text_field :state, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+      </div>
+      <div>
+        <%= company_address_form.label :city, "City", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+        <%= company_address_form.text_field :city, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+      </div>
+    </div>
+    <div class="grid gap-6 mb-6 md:grid-cols-3">
+      <div>
+        <%= company_address_form.label :lat, "Lat", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+        <%= company_address_form.number_field :lat, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+      </div>
+      <div>
+        <%= company_address_form.label :lng, "Long", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+        <%= company_address_form.number_field :lng, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+      </div>
+      <div>
+        <%= company_address_form.label :postal_code, "Postal code", class:"block mb-2 text-sm font-medium text-gray-900 light:text-white" %>
+        <%= company_address_form.number_field :postal_code, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-blue-500 light:focus:border-blue-500" %>
+      </div>
+    </div>
+  <%- end %>
+<%- end %>

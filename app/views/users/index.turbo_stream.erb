@@ -15,7 +15,7 @@
 <turbo-stream action="replace" target="search_button_container">
   <template>
     <div id="search_button_container">
-      <%= button_to "Search", users_path(per_page: params[:per_page], keyword: params[:keyword]), { form_class: "hidden"} %>
+      <%= button_to "Search", post_index_users_path(per_page: params[:per_page], keyword: params[:keyword]), { form_class: "hidden"} %>
     </div>
   </template>
 </turbo-stream>
