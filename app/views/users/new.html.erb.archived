@@ -1,0 +1,7 @@
+
+<%# TODO - for dynamic form %>
+<%= render TurboModalComponent.new(title: "Create User") do %>
+  <%= render :layout=>"components/form", locals: { model: @user } do |form|%>
+    <%= render partial: "user_form_fields", locals: { model: @user, form: form[:form] } %>
+  <% end %>
+<% end %>

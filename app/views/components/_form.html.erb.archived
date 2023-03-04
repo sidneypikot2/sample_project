@@ -1,0 +1,4 @@
+<%# TODO - for dynamic form %>
+<%= form_with(model: model, class: "contents", id: "model_form") do |form| %>
+  <%= yield(form: form) %>
+<% end %>

@@ -8,5 +8,9 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :company
   accepts_nested_attributes_for :address
 
-  validates_presence_of :bank
+  validates_presence_of :first_name, :maiden_name, :last_name, :birth_date,
+                        :gender, :university, :email, :phone, :username,
+                        :height, :weight, :eye_color, :hair_type, :hair_color
+  validates_presence_of :password, on: :create
+  validates_associated :bank, :company, :address
 end
