@@ -89,9 +89,8 @@
 
   ## TODOS
   * Add validations to data on create/update
-  * Pagination with Hotwire/Turbo
   * Update query params for pagination
-  * Implement search with Hotwire/Turbo
+  * Implement search for specific keys/attributes
   * Cache the data for faster response times and purge the cache when a record is added or removed.
   * Add tests (unit, integration, worker)
   * Feature to update table after deleting data
