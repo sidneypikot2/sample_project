@@ -48,9 +48,7 @@ export default class extends Controller {
     var keyword = document.getElementById('search').value;
     var search_form = document.getElementById('search_button_container').parentElement.getElementsByTagName('form')[0];
     url.searchParams.delete("page");
-    if(url.searchParams.has('keyword')) {
-      url.searchParams.set("keyword", keyword);
-    }
+    url.searchParams.set("keyword", keyword);
     window.history.pushState({}, "", url)
     search_form.action = "users/post-index?" + url.searchParams.toString()
     this.element.parentElement.nextElementSibling.getElementsByTagName('button')[0].click()
