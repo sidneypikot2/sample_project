@@ -1,5 +1,5 @@
 class Users::CreateUser
   include Interactor::Organizer
 
-  organize Users::CreateService
+  organize Users::CreateService, Shared::PurgeCacheService
 end

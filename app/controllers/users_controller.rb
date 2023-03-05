@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    result = Users::SearchUsers.call(params: params)
+    result = Users::SearchUsers.call(key: "user", params: params)
     @users = result.users
     respond_to do |format|
-      format.json { render json: UserSerializer.new(@users).serializable_hash }
+      format.json { render json: UserSerializer.new(@users).serializable_hash  }
       format.html
       format.turbo_stream
     end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    result = Users::CreateUser.call(attributes: user_params)
+    result = Users::CreateUser.call(key: "user", attributes: user_params)
     @user = result.user
     respond_to do |format|
       if result.success?
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
   end
 
   def destroy_multiple
-    result = Users::DeleteUsers.call(ids: params[:ids])
+    result = Users::DeleteUsers.call(key: "user", ids: params[:ids])
     @ids = result.ids
     respond_to do |format|
       if result.success?

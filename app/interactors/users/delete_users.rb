@@ -1,5 +1,5 @@
 class Users::DeleteUsers
   include Interactor::Organizer
 
-  organize Users::GetService, Users::DeleteService
+  organize Users::GetService, Users::DeleteService, Shared::PurgeCacheService
 end

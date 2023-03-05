@@ -24,7 +24,7 @@ class UserQuery
     end
 
     def sort_result(sort_key, sort_direction)
-      sort_key = "id" if !sort_key
+      sort_key = "users.id" if !sort_key
       sort_direction = "desc" if !sort_direction
       self.order("#{sort_key} #{sort_direction}")
     end
@@ -36,19 +36,23 @@ class UserQuery
     end
   end
 
-  def self.paginated_filter(params)
+  def self.search(params)
     User.joins(:company, :address)
+      .includes(:address, :bank, company: :address)
       .extending(Scopes)
       .filter_by_ids(params[:ids])
       .filter_by_first_name(params[:first_name])
       .filter_by_keyword(params[:keyword])
       .sort_result(params[:sort_key],params[:sort_direction])
-      .paginate(params[:page], params[:per_page])
   end
 
   def self.filter_by_ids(ids)
-    User
-      .extending(Scopes)
-      .filter_by_ids(ids)
+    User.extending(Scopes)
+        .filter_by_ids(ids)
+  end
+
+  def self.all(sort_key = nil, sort_direction = nil)
+    User.extending(Scopes)
+        .sort_result(sort_key,sort_direction)
   end
 end

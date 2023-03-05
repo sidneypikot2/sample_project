@@ -76,7 +76,7 @@
   ## Requirements
   * Fetch users data from the API endpoint and store it in the DB.
   * Use skip and limit params to paginate through resources.
-  * Use a Worker to implement fetch logic, but for each page, call a new instance of the worker (meaning, process only one page in one instance of the worker and for the next page, enqueue another  worker until all records are processed).
+  * Use a Worker to implement fetch logic, but for each page, call a new instance of the worker (meaning, process only one page in one instance of the worker and for the next page, enqueue another worker until all records are processed).
   * Implement controller action to render HTML and JSON views for the User model
   * Implement logic to add/update/delete data from the views (bonus points for using Hotwire/Turbo)
   * Implement logic to select and delete multiple records at the same time.
@@ -88,12 +88,10 @@
 
 
   ## TODOS
-  * Add validations to data on create/update
-  * Update query params for pagination
-  * Implement search for specific keys/attributes
-  * Cache the data for faster response times and purge the cache when a record is added or removed.
-  * Add tests (unit, integration, worker)
-  * Feature to update table after deleting data
+  * Add complex validations for certain fields.
+  * Implement search for specific keys/attributes.
+  * Add tests (unit, integration, worker).
+  * Feature to update table after deleting data.
   * Clean Code
   * Update ReadME
   * ...

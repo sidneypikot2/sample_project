@@ -1,7 +1,7 @@
 class Users::SearchService < ApplicationService
 
   def call
-    users = UserQuery.paginated_filter(context.params)
+    users = Rails.cache.read(context.key.pluralize)
     context.users = users
   end
 end
