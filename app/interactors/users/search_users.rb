@@ -1,5 +1,5 @@
 class Users::SearchUsers
   include Interactor::Organizer
 
-  organize Users::SearchService
+  organize Shared::CreateCacheService, Users::SearchService, Shared::PaginationService
 end

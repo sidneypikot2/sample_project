@@ -35,7 +35,7 @@ export default class extends Controller {
 
   triggerTurboPaginate() {
     const url = new URL(window.location);
-    url.searchParams.set("page", this.element.textContent);
+    url.searchParams.set("page", this.element.previousElementSibling.getElementsByTagName('button')[0].textContent);
     if(url.searchParams.has('keyword')) {
       url.searchParams.set("keyword", url.searchParams.get('keyword'));
     }
