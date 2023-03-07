@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :edit, :show, :update, :create] do
     collection do
       post   :upload_data,        path: 'upload-data',      as: 'upload_data'
+      # Added temporarily to upload data in case Postman is not available
+      get    :upload_data,        path: 'upload/data'
       delete :destroy_multiple,   path: 'destroy-multiple', as: 'destroy_multiple'
       post   :index,              path: 'post-index',       as: 'post_index'
     end
