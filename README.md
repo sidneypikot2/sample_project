@@ -22,6 +22,10 @@
 
   * $ docker compose build
 
+  `Precompile assets`
+
+  * $ docker compose run web bundle exec rake assets:precompile
+
   `Start docker containers`
 
   * $ docker compose up -d
@@ -37,40 +41,49 @@
   `Stop docker container`
 
   * $ docker compose down
-
+----
 # Routes
-  ## Uploading data
-  * `curl --location --request POST 'localhost:3000/users/upload-data?limit=20&skip=0'`
+  ## Uploading data via Postman
+  * Import the curl below
+  ```
+  curl --location --request POST 'localhost:3000/users/upload-data?limit=20&skip=0'
+  ```
 
-  ## API's
-  * `Index`
+  ## Uploading data - If Postman is not available
+  * Open a browser and paste the link below
+  ```
+  http://localhost:3000/users/upload/data?limit=20&skip=0
+  ```
+---
+# API's
+  ## Index
   * `GET 'localhost:3000/users?keyword=Davis Group&page=1&per_page=10'`
   * Sample Curl:
   ```
   curl --location 'localhost:3000/users?keyword=Davis%20Group&per_page=10&page=1'
   ```
 
-  * `Show`
+ ## Show
   * `GET 'localhost:3000/users/:id'`
   * Sample Curl:
   ```
   curl --location 'localhost:3000/users/153'
   ```
 
-  * `Delete`
+  ## Delete
   * `Delete 'localhost:3000/users/destroy-multiple?ids=list_of_ids_separated_by_comma'`
   * Sample Curl:
   ```
   curl --location --request DELETE 'localhost:3000/users/destroy-multiple?ids=1%2C2%2C3%2C4'
   ```
 
-  * `Put`
+  ## Put
   * `No API details:TODO`
 
-  * `Create`
+  ## Create
   * `No API details:TODO`
-
-  ## Web
+---
+# Web
   * `http://localhost:3000/users`
 
   ## Requirements
@@ -89,6 +102,7 @@
 
   ## TODOS
   * Add complex validations for certain fields.
+  * Image Upload
   * Implement search for specific keys/attributes.
   * Add tests (unit, integration, worker).
   * Feature to update table after deleting data.
