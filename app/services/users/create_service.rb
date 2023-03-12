@@ -2,22 +2,18 @@
 class Users::CreateService < ApplicationService
 
   def call
-    if context.users
-      users = context.users
-      users['users'].each do |user|
-        user = User.new(serialize(user))
-        user.save
-      end
+    attributes = context.attributes ? context.attributes : serialize(context.user)
+    if attributes[:image].class == String
+      attributes[:image] = Shrine.remote_url(attributes[:image])
+    end
+    user = User.new(attributes)
+    if user.valid? && user.save
+      context.user = user
+      context.message = "Create successful"
     else
-      user = User.new(context.attributes)
-      if user.valid? && user.save
-        context.user = user
-        context.message = "Create successful"
-      else
-        context.user = user
-        context.message = user.errors.full_messages
-        context.fail!
-      end
+      context.user = user
+      context.message = user.errors.full_messages
+      context.fail!
     end
   end
 

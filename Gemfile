@@ -31,6 +31,7 @@ gem "jbuilder"
 gem "redis", "~> 4.0"
 
 gem "sidekiq", "~> 7.0"
+gem "sidekiq-cron"
 
 gem 'rest-client', '~> 2.1'
 
@@ -60,6 +61,10 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails"
+  gem 'capybara'
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do
@@ -83,3 +88,8 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 gem "view_component"
 gem 'rails-observers'
+# Image upload
+gem 'shrine', '~> 3.3'
+gem "image_processing", "~> 1.0"
+
+gem "down", "~> 5.0"

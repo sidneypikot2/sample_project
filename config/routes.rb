@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+require 'sidekiq/cron/web'
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,4 +16,6 @@ Rails.application.routes.draw do
       post   :index,              path: 'post-index',       as: 'post_index'
     end
   end
+
+  root to: "users#index"
 end
