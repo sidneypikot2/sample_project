@@ -3,7 +3,7 @@
 <%= turbo_frame_tag "modal" do %>
   <%= tag.div data: { controller: "turbo-modal",
                       turbo_modal_target: "modal",
-                      action: "turbo:submit-end->turbo-modal#submitEnd keyup@window->turbo-modal#closeWithKeyboard click@window->turbo-modal#closeBackground" },
+                      action: "turbo:submit-end->turbo-modal#submitEnd keyup@window->turbo-modal#closeWithKeyboard" },
                       class: "p-5 absolute z-10 top-10 right-10 rounded-md w-96 break-words" do %>
   <div tabindex="-1" aria-hidden="true" class=" bg-gray-400/50 fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
     <div class="relative w-full h-full max-w-2xl md:h-auto m-auto">

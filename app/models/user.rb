@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   include Presentable
+  include UserImageUploader::Attachment(:image)
+
   has_one :bank, dependent: :destroy
   has_one :company, dependent: :destroy
   has_one :address, as: :addressable, dependent: :destroy
@@ -13,4 +15,6 @@ class User < ApplicationRecord
                         :height, :weight, :eye_color, :hair_type, :hair_color
   validates_presence_of :password, on: :create
   validates_associated :bank, :company, :address
+
+  validates :email, uniqueness: true
 end

@@ -8,10 +8,11 @@
   `git`, `docker`, `docker-compose`
 
 # Notable Gems
-  `sidekiq`, `stimulus-rails`, `turbo-rails`, `fast_jsonapi`, `interactor`, `kaminari`, `tailwindcss-rails`, `rails-observers`
+  `sidekiq`, `sidekiq-cron`, `stimulus-rails`, `turbo-rails`, `fast_jsonapi`, `interactor`, `kaminari`, `tailwindcss-rails`, `rails-observers`, `shrine`, `image_processing`, `redis`
 
 # Design Patterns
   `queries`, `services`, `serializers`, `presenters`, `observers`, `interactors`
+
 # How to setup
 
   `Clone`
@@ -99,11 +100,19 @@
   * Make the views filterable by at least two filters of your choice (ie: gender and height)
   * Add tests (unit, integration, worker). Use your judgment to decide how complex tests should be. You can use RSpec or minitest.
 
+  ## Features
+  * CRUD
+  * Mailers
+  * Caching
+  * Filtering
+  * Pagination
+  * Image uploading
+  * Use of cron jobs
+  * Use of background jobs
 
   ## TODOS
   * Add complex validations for certain fields.
-  * Image Upload
-  * Implement search for specific keys/attributes.
+  * Implement searchkick - elasticsearch
   * Add tests (unit, integration, worker).
   * Feature to update table after deleting data.
   * Clean Code
