@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+# Should be transfered to utitilies
+require 'digest'
+class Shared::GenerateUniqueHashService < ApplicationService
+
+  def call
+    context.unique_hash = Digest::SHA256.hexdigest context.hash_source
+  end
+end

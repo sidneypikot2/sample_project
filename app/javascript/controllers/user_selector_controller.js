@@ -53,4 +53,12 @@ export default class extends Controller {
     search_form.action = "users/post-index?" + url.searchParams.toString()
     this.element.parentElement.nextElementSibling.getElementsByTagName('button')[0].click()
   }
+
+  triggerTurboChange() {
+    const image_container = document.getElementById("image-container");
+    const image_input = document.getElementById("dropzone-file");
+    const file = image_input.files[0]
+    var i = `<img class="rounded-full h-36 w-36 m-auto" alt="image description" id="image-output" data-controller="user-selector" data-action="click->user-selector#triggerTurboChange" src=${URL.createObjectURL(file)}>`
+    image_container.innerHTML = i
+  }
 }

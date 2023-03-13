@@ -11,3 +11,6 @@ Sidekiq.configure_server do |config|
 end
 
 Sidekiq.strict_args!(false)
+
+
+Sidekiq::Cron::Job.create(name: 'Clear image cache every 30 min', cron: "*/30 * * * *", class: 'ClearImageCacheWorker') if Sidekiq.server?

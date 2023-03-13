@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM ruby:3.2.0
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client libvips42 libvips-dev
 WORKDIR /sample_project
 COPY Gemfile /sample_project/Gemfile
 COPY Gemfile.lock /sample_project/Gemfile.lock
